@@ -11,17 +11,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    author = message.author
-    content = message.content
-    print('{}: {}'.format(author,content))
-
-@client.event
-async def on_message(message):
     if 'fuck' in message.content:
         await client.send_message(message.channel,'No Cussing!')
     if 'shit' in message.content:
         await client.send_message(message.channel, 'No Cussing!')
 
 
+@client.event
+async def on_message_delete(message):
+    author = message.author
+    content = message.content
+    channel = message.channel
+    await client.send_message(channel, '{}: {}'.format(author,content))
 
 client.run(TOKEN)
