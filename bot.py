@@ -16,28 +16,33 @@ async def on_ready():
 async def on_message(message):
     if 'fuck' in message.content.lower():
         await client.send_message(message.channel,'No Cussing!')
+        await client.delete_message(message)
     if 'shit' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'bitch' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'ass' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'crap' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'piss' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'douche' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
     if 'dick' in message.content.lower():
         await client.send_message(message.channel, 'No Cussing!')
+        await client.delete_message(message)
+    if '!stop' in message.content.lower():
+        await client.logout()
 #another event handler.  If a user deletes a message,the bot will output
 #the deleted message and the user that deleted it
-@client.event
-async def on_message_delete(message):
-    author = message.author
-    content = message.content
-    channel = message.channel
-    await client.send_message(channel, '{}: {}'.format(author,content))
+
 
 #Yushuo will work on the two commands !online & !offline, to prompt the bot
 #to go online or offline.  Can add other commands if you want
