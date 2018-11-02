@@ -6,7 +6,7 @@ TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
 #the prefix before every command this bot takes is '!'. Ex) !online, !offline
 client = commands.Bot(command_prefix = '!')
 
-cussWords = ['fuck', 'shit', 'piss', 'dick', 'asshole']
+cussWords = ['fuck', 'shit', 'damn', 'bitch', 'crap', 'piss', 'dick', 'cock', 'pussy', 'asshole', 'fag', 'faggot', 'bastard', 'slut', 'douche', 'ass']
 @client.event
 async def on_ready():
     print('Bot is ready')
