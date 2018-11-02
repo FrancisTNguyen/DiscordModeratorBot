@@ -6,6 +6,7 @@ TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
 #the prefix before every command this bot takes is '!'. Ex) !online, !offline
 client = commands.Bot(command_prefix = '!')
 
+cussWords = ['fuck', 'shit', 'piss', 'dick', 'asshole']
 @client.event
 async def on_ready():
     print('Bot is ready')
@@ -14,30 +15,9 @@ async def on_ready():
 #it would output 'No Cussing' in the chat
 @client.event
 async def on_message(message):
-    if 'fuck' in message.content.lower():
-        await client.send_message(message.channel,'No Cussing!')
-        await client.delete_message(message)
-    if 'shit' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'bitch' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'ass' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'crap' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'piss' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'douche' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
-    if 'dick' in message.content.lower():
-        await client.send_message(message.channel, 'No Cussing!')
-        await client.delete_message(message)
+    if any(word in message.content.lower() for word in cussWords):
+       await client.send_message(message.channel,'No Cussing!')
+       await client.delete_message(message)
     if '!stop' in message.content.lower():
         await client.logout()
 
