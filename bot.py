@@ -40,8 +40,7 @@ async def on_message(message):
         await client.delete_message(message)
     if '!stop' in message.content.lower():
         await client.logout()
-#another event handler.  If a user deletes a message,the bot will output
-#the deleted message and the user that deleted it
+
 
 
 #Yushuo will work on the two commands !online & !offline, to prompt the bot
