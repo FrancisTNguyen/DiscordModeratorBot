@@ -32,13 +32,32 @@ async def stop():
 async def rollsix():
     a_number = random.randint(1, 6)
     await client.say('You rolled a: ')
-    await client.say(a_number)
+    if a_number == 1:
+        await client.say(':one:')
+    if a_number == 2:
+        await client.say(':two:')
+    if a_number == 3:
+        await client.say(':three:')
+    if a_number == 4:
+        await client.say(':four:')
+    if a_number == 5:
+        await client.say(':five:')
+    if a_number == 6:
+        await client.say(':six:')
 
 @client.command()
 async def coinflip():
     coin = ['heads', 'tails']
     rand = random.choice(coin)
     await client.say('You got ')
-    await client.say(rand)
+    if rand == 'heads':
+        await client.say(':regional_indicator_h:'':regional_indicator_e:'':regional_indicator_a:'':regional_indicator_d:'':regional_indicator_s:')
+    else:
+        await client.say(':regional_indicator_t:'':regional_indicator_a:'':regional_indicator_i:'':regional_indicator_l:'':regional_indicator_s:')
+
+#@client.command()
+#async def help():
+
+#add play music feature
 
 client.run(TOKEN)
