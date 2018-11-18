@@ -8,6 +8,7 @@ TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
 client = commands.Bot(command_prefix = '!')
 
 cussWords = ['fuck', 'shit', 'damn', 'bitch', 'crap', 'piss', 'dick', 'cock', 'pussy', 'asshole', 'fag', 'faggot', 'bastard', 'slut', 'douche', 'ass']
+rockpaperscisssors = ['rock', 'scissors', 'paper']
 @client.event
 async def on_ready():
     print('Bot is ready')
@@ -55,6 +56,16 @@ async def coinflip():
     else:
         await client.say(':regional_indicator_t:'':regional_indicator_a:'':regional_indicator_i:'':regional_indicator_l:'':regional_indicator_s:')
 
+@client.command()
+async def rockpaper():
+    rand1 = random.choice(rockpaperscisssors)
+    await client.say('I play ')
+    if rand1 == 'rock':
+        await client.say('rock')
+    if rand1 == 'scissors':
+        await client.say('scissors')
+    if rand1 == 'paper':
+        await client.say('paper')
 #@client.command()
 #async def help():
 
