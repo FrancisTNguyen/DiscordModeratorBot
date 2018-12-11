@@ -61,10 +61,35 @@ async def coinflip():
     else:
         await client.say(':regional_indicator_t:'':regional_indicator_a:'':regional_indicator_i:'':regional_indicator_l:'':regional_indicator_s:')
 
-
-#@client.command()
-#async def help():
-
-#add play music feature
-
+#command handler. If a user wants to know the commands of the bot, this program outputs a message saying what the bot does
+@client.command()
+async def help():
+    await client.say('Hello! Here are the commands currently available:')
+    await client.say('rollsix = Rolls dice')
+    await client.say('coinflip = Flips a coin')
+    await client.say('join = Joins voice channel')
+    await client.say('leave = Leaves voice channel')
+    await client.say('yt (insert url) = Plays music')
+    await client.say('stop = Stops bot')
+  
+#command handler. This command has the bot join/leave the voice channel
+@client.command()
+async def join(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await client.join_voice_channel(channel)
+@client.command()
+async def leave(ctx):
+    server = ctx.message.server
+    voice_client = client.voice_client_in(server)
+    await voice_client.disconnect
+    
+#command handler. This command has the bot play music
+#COMMAND HAS NOT BEEN TESTED YET
+@client.command(pass_context=True)
+async def yt(url):
+    author = ctx.message.author
+    voice_channel = author.voice_channel
+    player = await vc.create_ytdl_player(url)
+    player.start()
+ 
 client.run(TOKEN)
