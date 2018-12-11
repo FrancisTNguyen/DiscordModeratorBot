@@ -7,8 +7,10 @@ TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
 #the prefix before every command this bot takes is '!'. Ex) !online, !offline
 client = commands.Bot(command_prefix = '!')
 
+#use array to store list of curse words to censor
 cussWords = ['fuck', 'shit', 'damn', 'bitch', 'crap', 'piss', 'dick', 'cock', 'pussy', 'asshole', 'fag', 'faggot', 'bastard', 'slut', 'douche', 'ass']
-rockpaperscisssors = ['rock', 'scissors', 'paper']
+
+#outputs a message saying 'bot is ready' once the program is ready to use
 @client.event
 async def on_ready():
     print('Bot is ready')
@@ -17,18 +19,20 @@ async def on_ready():
 #it would output 'No Cussing' in the chat
 @client.event
 async def on_message(message):
+    #this will convert all text in the message to lower case to handle the case of certain words
     if any(word in message.content.lower() for word in cussWords):
        await client.send_message(message.channel,'No Cussing!')
        await client.delete_message(message)
     await client.process_commands(message)
-    #if '!stop' in message.content.lower():
-        #await client.logout()
 
+#command handler.  If a user type '!stop' the program will close
 @client.command()
 async def stop():
     await client.say('You kids be good now!')
     await client.logout()
 
+#command handler. If a user type '!rollsix' the program will pick a number from 1-6 that is stored in
+#a variable called a_number and outputs a number.
 @client.command()
 async def rollsix():
     a_number = random.randint(1, 6)
@@ -46,6 +50,7 @@ async def rollsix():
     if a_number == 6:
         await client.say(':six:')
 
+#command handler.  If a user types '!coinflip' the program will pick 'heads' or 'tails' from the list 'coin' and outputs one of the options
 @client.command()
 async def coinflip():
     coin = ['heads', 'tails']
@@ -56,16 +61,7 @@ async def coinflip():
     else:
         await client.say(':regional_indicator_t:'':regional_indicator_a:'':regional_indicator_i:'':regional_indicator_l:'':regional_indicator_s:')
 
-@client.command()
-async def rockpaper():
-    rand1 = random.choice(rockpaperscisssors)
-    await client.say('I play ')
-    if rand1 == 'rock':
-        await client.say('rock')
-    if rand1 == 'scissors':
-        await client.say('scissors')
-    if rand1 == 'paper':
-        await client.say('paper')
+
 #@client.command()
 #async def help():
 
