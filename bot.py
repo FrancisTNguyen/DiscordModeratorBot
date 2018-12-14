@@ -1,7 +1,12 @@
+#Danielle Batalla, Francis Nguyen, Yushuo Lu
+#CPSC 254-01
+#Prof. David Heckathorn
+
 import discord
 from discord.ext import commands
 import random
 
+#This program creates a Discord 'Bot,' which is built to do the features listed below
 
 #this is the token needed to link this bot code back to the discord app
 TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
