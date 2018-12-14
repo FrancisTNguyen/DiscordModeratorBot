@@ -1,8 +1,7 @@
 import discord
-from ctypes.util import find_library
 from discord.ext import commands
 import random
-from discord import opus
+
 
 #this is the token needed to link this bot code back to the discord app
 TOKEN = 'NDk5NTAzNTc3MzUwMjc1MDcz.Dp9O5w.TJ09ddv1mW3AqPfym5aLWJlh2eg'
@@ -74,27 +73,6 @@ async def helpme():
     await client.say('yt (insert url) = Plays music')
     await client.say('stop = Stops bot')
 
-#command handler. This command has the bot join/leave the voice channel
-@client.command(pass_context = True)
-async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
 
-@client.command(pass_context = True)
-async def leave(ctx):
-    opus_path = find_library('opus')
-    discord.opus.load_opus(opus_path)
-    server = ctx.message.server
-    voice_client = client.voice_client_in(server)
-    await voice_client.disconnect
-
-#command handler. This command has the bot play music
-#COMMAND HAS NOT BEEN TESTED YET
-@client.command(pass_context=True)
-async def yt(url):
-    author = ctx.message.author
-    voice_channel = author.voice_channel
-    player = await vc.create_ytdl_player(url)
-    player.start()
 
 client.run(TOKEN)
