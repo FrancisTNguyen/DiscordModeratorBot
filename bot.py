@@ -73,11 +73,6 @@ async def helpme():
     await client.say('Hello! Here are the commands currently available:')
     await client.say('rollsix = Rolls dice')
     await client.say('coinflip = Flips a coin')
-    await client.say('join = Joins voice channel')
-    await client.say('leave = Leaves voice channel')
-    await client.say('yt (insert url) = Plays music')
     await client.say('stop = Stops bot')
-
-
 
 client.run(TOKEN)
